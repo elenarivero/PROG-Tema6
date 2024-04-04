@@ -1,7 +1,9 @@
 package pruebas;
 
 public class Empleado extends Persona {
+	
 	private double salario;
+	String altura = "";
 
 	public Empleado(String nombre, int edad, double altura, double salario) {
 		super(nombre, edad, altura);
@@ -15,15 +17,18 @@ public class Empleado extends Persona {
 
 
 
+	public double getSalario() {
+		return salario;
+	}
+	
+	@Override
 	public String toString() {
 		String res = "";
 		
 		res += super.toString() + "\n";
 		res += "Salario: " + this.salario;
 		
-		
 		return res;
 	}
-	
 	
 }
