@@ -1,6 +1,6 @@
 package ejercicio04;
 
-public class Electrodomestico {
+public class Electrodomestico implements Comparable<Electrodomestico>{
 
 	enum ConsumoEnergetico {
 		A, B, C, D, E, F
@@ -36,7 +36,7 @@ public class Electrodomestico {
 		comprobarColor(color);
 
 	}
-	
+
 	public double getPrecioBase() {
 		return this.precioBase;
 	}
@@ -53,7 +53,7 @@ public class Electrodomestico {
 		return this.peso;
 	}
 
-	private void comprobarConsumoEnergetico(char letra) {
+	private void comprobarConsumoEnergetico2(char letra) {
 		switch (letra) {
 		case 'A', 'B', 'C', 'D', 'E', 'F':
 			this.consumo = ConsumoEnergetico.valueOf(String.valueOf(letra));
@@ -61,6 +61,17 @@ public class Electrodomestico {
 		default:
 			this.consumo = ConsumoEnergetico.F;
 			break;
+		}
+
+	}
+
+	private void comprobarConsumoEnergetico(char letra) {
+		String letraCad = String.valueOf(letra);
+		
+		try {
+			this.consumo = ConsumoEnergetico.valueOf(letraCad);
+		} catch (IllegalArgumentException e) {
+			this.consumo = ConsumoEnergetico.F;
 		}
 		
 	}
@@ -77,7 +88,7 @@ public class Electrodomestico {
 			break;
 		}
 	}
-	
+
 	public void precioFinal() {
 		precioBase = switch (consumo) {
 		case A -> precioBase + 100;
@@ -97,7 +108,26 @@ public class Electrodomestico {
 		} else {
 			precioBase += 100;
 		}
+
+	}
+
+	@Override
+	public int compareTo(Electrodomestico o) {
+		int res = 0;
 		
+		if(this.precioBase < o.precioBase) {
+			res = -1;
+		} else if (this.precioBase > o.precioBase) {
+			res = 1;
+		}
+		
+		return res;
+	}
+
+	@Override
+	public String toString() {
+		return "Electrodomestico [precioBase=" + precioBase + ", color=" + color + ", consumo=" + consumo + ", peso="
+				+ peso + "]";
 	}
 	
 }
