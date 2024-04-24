@@ -16,8 +16,6 @@ Vehículo
 + setMarcha(int marcha)
 + setMotor(boolean motor)
 
-
-
 Turismo extends Vehículo
 	enum Tipo {PARTICULAR, PROFESIONAL}
 	- numPlazas: int
