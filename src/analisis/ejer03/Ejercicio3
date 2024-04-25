@@ -1,0 +1,40 @@
+CuentaBancaria
+	- numCuenta: String
+	# saldo: double
+	- titulares: Titular[3]
+	+ CuentaBancaria(numCuenta, saldo, titular)
+	+ ingresar(double cantidad): boolean
+	+ retirar(double cantidad): boolean
+	+ addTitular(Titular t): boolean
+	+ borraTitular(Titular t): boolean
+	
+CuentaAhorro extends CuentaBancaria
+	- mantenimiento: double
+	- interes: double
+	CuentaAhorro(numCuenta, saldo, titular, mantenimiento, interes)
+	+ aplicaInteres()
+	+ aplicaMantenimiento()
+
+CuentaCorriente extends CuentaBancaria
+	- transacciones: List<Transaccion>
+	CuentaCorriente(numCuenta, saldo, titular)
+	
+Transaccion
+	enum TipoMovimiento {BIZUM, RECIBOS, TRANSFERENCIAS, IMPUESTOS}
+	- porcentaje: double
+	- dia: int
+	- mes: int
+	- anyo: int
+	- concepto: String
+	- importe: double
+	- tipo: TipoMovimiento
+	
+	Transaccion(porcentaje, dia, mes, anyo, concepto, importe, tipo)
+	
+Titular
+	- DNI: String
+	- nombre: String
+	- apellidos: String
+	- telefono: String
+	+ Titular(DNI, nombre, apellidos, telefono)
+	+ equals(Object o): boolean (@Override)
