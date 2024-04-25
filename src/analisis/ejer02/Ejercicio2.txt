@@ -1,0 +1,41 @@
+abstract Ficha
+	- clave: int
+	- titulo: String
+	-------------------------
+	+ getClave(): int
+	+ getTitulo(): String
+	+ abstract prestar(): int
+
+Libro extends Ficha
+	- autor: String
+	- editorial: String
+	--------------------------
+	+ getAutor(): String
+	+ getEditorial(): String
+	--------------------------
+	heredados:
+		prestar(): int
+	
+
+Revista extends Ficha
+	- numRevista: int
+	- anyoPublicacion: int
+	----------------------------
+	+ getNumRevista(): int
+	+ getAnyoPublicacion(): int
+	----------------------------
+	heredados:
+		prestar(): int
+
+DVD extends Ficha
+	enum TipoDVD {PELÍCULA, DOCUMENTAL, SERIE}
+	- director: String
+	- anyo: int
+	- tipo: TipoDVD
+	-----------------------------
+	+ getDirector(): String
+	+ getAnyo(): String
+	+ getTipo(): String
+	--------------------------
+	heredados:
+		prestar(): int
