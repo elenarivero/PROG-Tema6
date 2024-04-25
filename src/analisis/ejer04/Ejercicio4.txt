@@ -1,0 +1,13 @@
+Contacto
+	- nombre: String
+	- telefono: long
+	Contacto(nombre, telefono)
+	+ getNombre(): String
+	getters y setters
+	+ equals(Object o): boolean (@Override)
+	
+Persona extends Contacto
+	- cumpleanyos: String (dd/mm/aaaa)
+	
+Empresa extends Contacto
+	- pagWeb: String
