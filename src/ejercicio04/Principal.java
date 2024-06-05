@@ -21,7 +21,7 @@ public class Principal {
 		electrodomesticos[1] = t1;
 		electrodomesticos[2] = t2;
 		electrodomesticos[3] = l1;
-		electrodomesticos[4] = l2;
+		electrodomesticos[5] = l2;
 		System.out.println(Arrays.toString(electrodomesticos));
 		Arrays.sort(electrodomesticos);
 		System.out.println(Arrays.toString(electrodomesticos));

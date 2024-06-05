@@ -1,11 +1,13 @@
 package pruebas;
 
+import excepciones.EdadNegativaException;
+
 public class Empleado extends Persona {
 	
 	private double salario;
 	String altura = "";
 
-	public Empleado(String nombre, int edad, double altura, double salario) {
+	public Empleado(String nombre, int edad, double altura, double salario) throws EdadNegativaException {
 		super(nombre, edad, altura);
 		this.salario = salario;
 	}

@@ -1,5 +1,7 @@
 package pruebas;
 
+import excepciones.EdadNegativaException;
+
 public class Persona {
 	protected String nombre;
 	protected int edad;
@@ -11,10 +13,16 @@ public class Persona {
 	}
 
 	
-	public Persona(String nombre, int edad, double altura) {
+	public Persona(String nombre, int edad, double altura) throws EdadNegativaException {
 		super();
 		this.nombre = nombre;
-		this.edad = edad;
+		
+		if (edad < 0) {
+			throw new EdadNegativaException();
+		} else {
+			this.edad = edad;
+		}
+		
 		this.altura = altura;
 	}
 
